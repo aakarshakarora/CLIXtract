@@ -1,0 +1,3 @@
+1. Add support for additional LLM providers.
+2. Optimize the parse-cli POST endpoint to reduce response time, which currently exceeds 15 seconds.
+3. Containerize the application for easier deployment.
