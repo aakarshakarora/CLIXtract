@@ -1,0 +1,19 @@
+{
+  "api_settings": {
+    "host": "0.0.0.0",
+    "port": 8116
+  },
+  "llm_settings": {
+    "default": "ollama",
+    "ollama": {
+      "host": "http://127.0.0.1:11434",
+      "model": "llama3.1:latest",
+      "temperature": 0
+    },
+    "openai": {
+      "api_key": "",
+      "model": "",
+      "temperature": 0
+    }
+  }
+}

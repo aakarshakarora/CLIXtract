@@ -1,0 +1,5 @@
+{
+  "name": "CLIXtract",
+  "version": "0.1.0",
+  "description": "FastAPI microservice to parse network CLI into JSON using LLMs"
+}

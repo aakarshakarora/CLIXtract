@@ -1,0 +1,114 @@
+{
+	"info": {
+		"_postman_id": "962ad9f3-3e76-4253-a6b8-579b95f56bcb",
+		"name": "CLIXtract",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39397687"
+	},
+	"item": [
+		{
+			"name": "Get Version",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/version",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"version"
+					]
+				},
+				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+			},
+			"response": []
+		},
+		{
+			"name": "show inventory",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"command_output\": \"NAME: \\\"Chassis\\\", DESCR: \\\"Cisco Catalyst 3750-X 24 Port Switch\\\"\\n\\nPID: WS-C3750X-24T-S   , VID: V01 , SN: FDO12345678\\n\\n\\nNAME: \\\"Slot 1 - Module\\\", DESCR: \\\"24 Port 10/100/1000BaseT Module\\\"\\n\\nPID: WS-C3750X-24T-S   , VID: V01 , SN: FDO12345678\\n\\n\\nNAME: \\\"GigabitEthernet1/0/1\\\", DESCR: \\\"1000BaseT\\\"\\n\\nPID: N/A                 , VID: N/A , SN: N/A\\n\\n\\nNAME: \\\"Power Supply 1\\\", DESCR: \\\"Cisco Catalyst 3750-X 715WAC Power Supply\\\"\\n\\nPID: C3KX-PWR-715WAC   , VID: V01 , SN: DCW12345678\\n\\n\\nNAME: \\\"FAN Tray\\\", DESCR: \\\"Cisco Catalyst 3750-X Series Fan Tray\\\"\\n\\nPID: C3KX-FAN-R        , VID: V01 , SN: FOC12345678\",\n  \"command_name\": \"show inventory\",\n  \"user_instruction\": null\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/parse-cli",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"parse-cli"
+					]
+				},
+				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "https://template.postman-echo.com"
+		}
+	]
+}

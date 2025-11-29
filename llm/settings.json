@@ -1,0 +1,13 @@
+{
+  "ollama": {
+    "model": "llama3.1:8b",
+    "options": {
+      "temperature": 0.0,
+      "top_p": 1.0,
+      "top_k": 40,
+      "repeat_penalty": 1.1,
+      "max_tokens": 4096,
+      "num_predict": 2048
+    }
+  }
+}
